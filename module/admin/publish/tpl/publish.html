@@ -79,6 +79,9 @@
 
 	<!-- Imported scripts on this page -->
 	<script type="text/javascript">
+		$('#blog-content').focus(function(){
+			$(this).html('');
+		});
 		$('#form').submit(function(){
 			$('input[name="content"]',this).val($('#blog-content').html());
 		});
