@@ -1,0 +1,46 @@
+<ul id="main-menu" class="main-menu">
+	<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+	<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+	<li>
+		<a href="javascript:;">
+			<i class="linecons-cog"></i>
+			<span class="title">Dashboard</span>
+		</a>
+		<ul>
+			<li>
+				<a href="/a">
+					<span class="title">Dashboard 1</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<a href="javascript:;">
+			<i class="linecons-cloud"></i>
+			<span class="title">Publish</span>
+		</a>
+		<ul>
+			<li>
+				<a href="/admin/publish">
+					<i class="entypo-flow-line"></i>
+					<span class="title">Edit</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+<script type="text/javascript">
+	$(function(){
+		var nowurl = window.location.pathname;
+		$('#main-menu li').each(function(){
+			$('ul li',this).each(function(){
+				var url = $('a',this).attr('href');
+				if(url == nowurl){
+					$(this).addClass('active');
+					$(this).parents('li').addClass('opened active');
+				}
+			});
+		});
+	});
+</script>
