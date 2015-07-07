@@ -25,89 +25,35 @@
 				</div>
 				<div class="panel-body">
 					
-					<script type="text/javascript">
-					jQuery(document).ready(function($)
-					{
-						$("#example-2").dataTable({
-							dom: "t" + "<'row'<'col-xs-6'i><'col-xs-6'p>>",
-							aoColumns: [
-								{bSortable: false},
-								null,
-								null,
-								null,
-								null
-							],
-						});
-						
-						// Replace checkboxes when they appear
-						var $state = $("#example-2 thead input[type='checkbox']");
-						
-						$("#example-2").on('draw.dt', function()
-						{
-							cbr_replace();
-							
-							$state.trigger('change');
-						});
-						
-						// Script to select all checkboxes
-						$state.on('change', function(ev)
-						{
-							var $chcks = $("#example-2 tbody input[type='checkbox']");
-							
-							if($state.is(':checked'))
-							{
-								$chcks.prop('checked', true).trigger('change');
-							}
-							else
-							{
-								$chcks.prop('checked', false).trigger('change');
-							}
-						});
-					});
-					</script>
-					
-					<table class="table table-bordered table-striped" id="example-2">
+					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th class="no-sorting">
-									<input type="checkbox" class="cbr">
-								</th>
-								<th>Student Name</th>
-								<th>Average Grade</th>
-								<th>Curriculum / Occupation</th>
+								<th>#</th>
+								<th>Title</th>
+								<th>Autor</th>
+								<th>Content</th>
+								<th>Time</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
 						
-						<tbody class="middle-align">
+						<tbody>
 
-							<?php for ($i=0; $i <200 ; $i++): ?>
+							<?php foreach ($data as $d): ?>
+
 								<tr>
-									<td>
-										<input type="checkbox" class="cbr">
-									</td>
-									<td>Randy S. Smith</td>
-									<td>8.7</td>
-									<td>Social and human service</td>
-									<td>
-										<a href="#" class="btn btn-secondary btn-sm btn-icon icon-left">
-											Edit
-										</a>
-										
-										<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
-											Delete
-										</a>
-										
-										<a href="#" class="btn btn-info btn-sm btn-icon icon-left">
-											Profile
-										</a>
-									</td>
+									<td><?=$d['id']?></td>
+									<td><?=$d['title']?></td>
+									<td><?=$d['user_id']?></td>
+									<td><?=$d['content']?></td>
+									<td><?=$d['id']?></td>
+									<td>edit</td>
 								</tr>
-							<?php endfor;?>
-							
+
+							<?php endforeach;?>
 						</tbody>
 					</table>
-					
+					<?=$page?>
 				</div>
 			</div>
 
@@ -117,10 +63,6 @@
 
 	<!-- Imported scripts on this page -->
 	<script type="text/javascript">
-		<?php include(MODULE.'/admin/assets/js/datatables/js/jquery.dataTables.min.js');?>
-		<?php include(MODULE.'/admin/assets/js/datatables/dataTables.bootstrap.js');?>
-		<?php include(MODULE.'/admin/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js');?>
-		<?php include(MODULE.'/admin/assets/js/datatables/tabletools/dataTables.tableTools.min.js');?>
 	</script>
 
 <?php include(MODULE.'/admin/public/end.html');?>

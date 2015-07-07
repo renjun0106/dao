@@ -15,15 +15,22 @@ class tpl{
 		$this->_isHasCache();
 	}
 
-	function show($tpl, $data=[], $lang=null, $compress=true){
+	function show($tpl, $data=[], $lang=null, $compress=true, $show=true){
 		if($this->is_has_cache){
 			include $this->cache_file;
 		}else{
 			$content = $this->_getInclude((strstr($tpl, '/')?MODULE:(PATH.'/'.$this->tpl_path)).'/'.$tpl.'.'.$this->tpl_postfix, $data, $lang);
 
-			echo $str = $compress?$this->_compress_html($content):$content;
+			$str = $compress?$this->_compress_html($content):$content;
+
 			if(ENVIRONMENT){
 				$this->_writeCache($str);
+			}
+
+			if($show){
+				echo $str;
+			}else{
+				return $str;
 			}
 		}
 	}
