@@ -6,7 +6,7 @@ class save extends common{
 		$this->lib(['db']);
 	}
 
-	function savePost($url){
+	function savePost(){
 		$table = $_POST['table'];
 		$id = $_POST['id'];
 		unset($_POST['table']);
@@ -14,10 +14,10 @@ class save extends common{
 
 		if($id){
 			$this->updateData($table,$_POST,$id);
+			return $id;
 		}else{
-			$this->insertData($table,$_POST);
+			return $this->insertData($table,$_POST);
 		}
-		header('Location: '.$url);
 	}
 
 	function insertData($table,$data){
@@ -27,7 +27,7 @@ class save extends common{
 			$params[] = $d;
 		}
 
-		$this->db->query('INSERT INTO `'.$table.'` ('.implode(',', $field).') VALUES ('.implode(',', $mark).')', $params);
+		return $this->db->query('INSERT INTO `'.$table.'` ('.implode(',', $field).') VALUES ('.implode(',', $mark).')', $params);
 	}
 
 	function updateData($table,$data,$id){

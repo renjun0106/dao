@@ -6,17 +6,18 @@ class page extends core{
 		$this->lib(['db','tpl']);
 	}
 
-	function getPage($table, $limit=5, $where='1=1', $column='*'){
+	function getPage($table, $where='1=1', $column='*', $limit=5){
 		$p = isset($_GET['p'])?$_GET['p']:1;
+		$page = ($p-1)*$limit;
 		$count = $this->db->query("SELECT count(*) count FROM `$table` WHERE $where");
-		$data = $this->db->query("SELECT $column FROM `$table` WHERE $where LIMIT $p,$limit");
+		$data = $this->db->query("SELECT $column FROM `$table` WHERE $where LIMIT $page,$limit");
 		
 		$page = $this->tpl->show('admin/common/page/page',[
 			'url'=>'?'.$this->getUrl().'&p=',
 			'p'=>$p,
 			'last_p'=>ceil($count[0]['count']/$limit)
 			],null,false,false);
-		return [$data,$page];
+		return [$data?$data:[],$page];
 	}
 
 	function getUrl(){

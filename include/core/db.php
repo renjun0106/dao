@@ -32,7 +32,10 @@ class db{
 			}
 			return isset($data)?$data:null;
 		}else{
-			return $this->mysqli->affected_rows;
+			if($this->mysqli->insert_id)
+				return $this->mysqli->insert_id;
+			if($this->mysqli->affected_rows)
+				return $this->mysqli->affected_rows;
 		}
 	}
 

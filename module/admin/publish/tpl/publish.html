@@ -36,11 +36,9 @@
 							<label class="col-sm-2 control-label">Title</label>
 							
 							<div class="col-sm-10">
-								<input name="title" type="text" class="form-control">
+								<input name="title" type="text" class="form-control" value="<?=$data['title']?>">
 							</div>
 						</div>
-						
-						<div class="form-group-separator"></div>
 						
 						<div class="form-group">
 							<label class="col-sm-2 control-label">
@@ -51,15 +49,138 @@
 								<a class="btn btn-white" href="javascript:;"><i class="fa-smile-o"></i></a>
 								<a class="btn btn-white" href="javascript:;"><i class="fa-external-link"></i></a>
 								<div class="form-control" id="blog-content" contenteditable="true">
+									<?=$data['content']?>
 								</div>
 								<input type="hidden" name="content">
 							</div>
 						</div>
 
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Description</label>
+							
+							<div class="col-sm-10">
+								<textarea name="description" class="form-control"><?=$data['description']?></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Select list</label>
+							
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									$("#s2example-1").select2({
+										placeholder: 'Select your country...',
+										allowClear: true
+									}).on('select2-open', function()
+									{
+										// Adding Custom Scrollbar
+										$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+									});
+									
+								});
+							</script>
+							
+							<div class="col-sm-10">
+								<select class="form-control" id="s2example-1" name="type">
+									<option></option>
+									<?php foreach ($type as $k=>$ts) :?>
+										<optgroup label="<?=$k?>">
+											<?php foreach ($ts as $k=>$t) :?>
+												<option value="<?=$k?>"><?=$t?></option>
+											<?php endforeach;?>
+										</optgroup>
+									<?php endforeach;?>
+								</select>
+							</div>
+										
+						</div>
+								
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Multiple select</label>
+								
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									$("#s2example-2").select2({
+										placeholder: 'Choose your favorite US Countries',
+										allowClear: true
+									}).on('select2-open', function()
+									{
+										// Adding Custom Scrollbar
+										$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+									});
+									
+								});
+							</script>
+							
+							<div class="col-sm-10">
+								<select class="col-sm-10 form-control" id="s2example-2" name="tags" multiple>
+								<option></option>
+								<optgroup label="United States">
+									<option>Alabama</option>
+									<option>Alaska</option>
+									<option>Arizona</option>
+									<option>Arkansas</option>
+									<option selected>California</option>
+									<option>Colorado</option>
+									<option>Connecticut</option>
+									<option>Delaware</option>
+									<option selected>Florida</option>
+									<option>Georgia</option>
+									<option>Hawaii</option>
+									<option>Idaho</option>
+									<option>Illinois</option>
+									<option>Indiana</option>
+									<option>Iowa</option>
+									<option>Kansas</option>
+									<option>Kentucky[C]</option>
+									<option>Louisiana</option>
+									<option>Maine</option>
+									<option>Maryland</option>
+									<option>Massachusetts[D]</option>
+									<option>Michigan</option>
+									<option>Minnesota</option>
+									<option>Mississippi</option>
+									<option>Missouri</option>
+									<option>Montana</option>
+									<option>Nebraska</option>
+									<option>Nevada</option>
+									<option>New Hampshire</option>
+									<option>New Jersey</option>
+									<option>New Mexico</option>
+									<option>New York</option>
+									<option>North Carolina</option>
+									<option>North Dakota</option>
+									<option>Ohio</option>
+									<option>Oklahoma</option>
+									<option>Oregon</option>
+									<option>Pennsylvania[E]</option>
+									<option>Rhode Island[F]</option>
+									<option>South Carolina</option>
+									<option>South Dakota</option>
+									<option>Tennessee</option>
+									<option>Texas</option>
+									<option>Utah</option>
+									<option>Vermont</option>
+									<option>Virginia[G]</option>
+									<option selected>Washington</option>
+									<option>West Virginia</option>
+									<option>Wisconsin</option>
+									<option>Wyoming</option>
+								</optgroup>
+								</select>
+							</div>
+								
+						</div>
+						
+						<div class="form-group-separator"></div>
+
 						<div class="form-group pull-right">
 							<input type="hidden" name="table" value="blog">
-							<input type="hidden" name="id" value="<?=$id?>">
-							<input type="hidden" name="user_id" value="<?=$user_id?>">
+							<input type="hidden" name="id" value="<?=$data['id']?>">
+							<input type="hidden" name="user_id" value="<?=$data['user_id']?>">
+							<input type="hidden" name="modify_time" value="<?=date('Y-m-d')?>">
 							<button type="submit" class="btn btn-success">Submit</button>
 							<button type="reset" class="btn btn-white">Reset</button>
 						</div>
@@ -78,7 +199,15 @@
 <?php include(MODULE.'/admin/public/post.html');?>
 
 	<!-- Imported scripts on this page -->
+	<style type="text/css">
+		<?php include(MODULE.'/admin/assets/js/select2/select2.css');?>
+		<?php include(MODULE.'/admin/assets/js/select2/select2-bootstrap.css');?>
+		<?php include(MODULE.'/admin/assets/js/multiselect/css/multi-select.css');?>
+	</style>
 	<script type="text/javascript">
+		<?php include(MODULE.'/admin/assets/js/select2/select2.min.js');?>
+		<?php include(MODULE.'/admin/assets/js/multiselect/js/jquery.multi-select.js');?>
+
 		$('#form').submit(function(){
 			$('input[name="content"]',this).val($('#blog-content').html());
 		});

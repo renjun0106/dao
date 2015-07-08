@@ -12,7 +12,9 @@ class lists extends common{
 		$this->lib(['tpl']);
 		$this->load(['admin/common/page'=>'page']);
 
-		list($data,$page) = $this->page->getPage('blog');
+		$where = 'user_id='.$this->user_id;
+		$field = 'id,user_id,title,description,creat_time,modify_time';
+		list($data,$page) = $this->page->getPage('blog',$where,$field);
 
 		$this->tpl->show('lists',[
 			'data'=>$data,
