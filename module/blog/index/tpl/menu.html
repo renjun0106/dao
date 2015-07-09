@@ -1,4 +1,9 @@
-<div class="menu-content">
+<?php $types = include('data/blogType.php');?>
+<?php foreach ($types as $type):?>
+	<?php foreach ($type as $k => $t):?>
+		<a href="/?type="<?=$k?>><?=$t?></a><br>
+	<?php endforeach;?>
+<?php endforeach;?><div class="menu-content">
 <span class="menu-heading">Main Categories</span>
 <div class="menu-content-group">
 <div class="menu-content-section">

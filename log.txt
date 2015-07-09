@@ -1,0 +1,8 @@
+Array
+(
+    [id] => 
+    [user_id] => 2
+    [title] => 
+    [content] => 
+    [description] => 
+)

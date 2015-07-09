@@ -64,13 +64,13 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Select list</label>
+							<label class="col-sm-2 control-label">Select Type</label>
 							
 							<script type="text/javascript">
 								jQuery(document).ready(function($)
 								{
-									$("#s2example-1").select2({
-										placeholder: 'Select your country...',
+									$("#s2-type").select2({
+										placeholder: 'Select Type...',
 										allowClear: true
 									}).on('select2-open', function()
 									{
@@ -82,12 +82,12 @@
 							</script>
 							
 							<div class="col-sm-10">
-								<select class="form-control" id="s2example-1" name="type">
+								<select class="form-control" id="s2-type" name="type">
 									<option></option>
-									<?php foreach ($type as $k=>$ts) :?>
+									<?php foreach ($base_data['type'] as $k=>$ts) :?>
 										<optgroup label="<?=$k?>">
 											<?php foreach ($ts as $k=>$t) :?>
-												<option value="<?=$k?>"><?=$t?></option>
+												<option value="<?=$k?>" <?php if($data['type']==$k):?>selected<?php endif;?>><?=$t?></option>
 											<?php endforeach;?>
 										</optgroup>
 									<?php endforeach;?>
@@ -97,13 +97,13 @@
 						</div>
 								
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Multiple select</label>
+							<label class="col-sm-2 control-label">Select Tags</label>
 								
 							<script type="text/javascript">
 								jQuery(document).ready(function($)
 								{
-									$("#s2example-2").select2({
-										placeholder: 'Choose your favorite US Countries',
+									$("#s2-tags").select2({
+										placeholder: 'Choose Tags...',
 										allowClear: true
 									}).on('select2-open', function()
 									{
@@ -115,60 +115,16 @@
 							</script>
 							
 							<div class="col-sm-10">
-								<select class="col-sm-10 form-control" id="s2example-2" name="tags" multiple>
+								<select class="col-sm-10 form-control" id="s2-tags" name="tags[]" multiple>
 								<option></option>
-								<optgroup label="United States">
-									<option>Alabama</option>
-									<option>Alaska</option>
-									<option>Arizona</option>
-									<option>Arkansas</option>
-									<option selected>California</option>
-									<option>Colorado</option>
-									<option>Connecticut</option>
-									<option>Delaware</option>
-									<option selected>Florida</option>
-									<option>Georgia</option>
-									<option>Hawaii</option>
-									<option>Idaho</option>
-									<option>Illinois</option>
-									<option>Indiana</option>
-									<option>Iowa</option>
-									<option>Kansas</option>
-									<option>Kentucky[C]</option>
-									<option>Louisiana</option>
-									<option>Maine</option>
-									<option>Maryland</option>
-									<option>Massachusetts[D]</option>
-									<option>Michigan</option>
-									<option>Minnesota</option>
-									<option>Mississippi</option>
-									<option>Missouri</option>
-									<option>Montana</option>
-									<option>Nebraska</option>
-									<option>Nevada</option>
-									<option>New Hampshire</option>
-									<option>New Jersey</option>
-									<option>New Mexico</option>
-									<option>New York</option>
-									<option>North Carolina</option>
-									<option>North Dakota</option>
-									<option>Ohio</option>
-									<option>Oklahoma</option>
-									<option>Oregon</option>
-									<option>Pennsylvania[E]</option>
-									<option>Rhode Island[F]</option>
-									<option>South Carolina</option>
-									<option>South Dakota</option>
-									<option>Tennessee</option>
-									<option>Texas</option>
-									<option>Utah</option>
-									<option>Vermont</option>
-									<option>Virginia[G]</option>
-									<option selected>Washington</option>
-									<option>West Virginia</option>
-									<option>Wisconsin</option>
-									<option>Wyoming</option>
-								</optgroup>
+									<?php $tagsarr=explode(',', $data['tags']);?>
+									<?php foreach ($base_data['tags'] as $k=>$ts) :?>
+										<optgroup label="<?=$k?>">
+											<?php foreach ($ts as $k=>$t) :?>
+												<option value="<?=$k?>" <?php if(in_array($k, $tagsarr)):?>selected<?php endif;?>><?=$t?></option>
+											<?php endforeach;?>
+										</optgroup>
+									<?php endforeach;?>
 								</select>
 							</div>
 								

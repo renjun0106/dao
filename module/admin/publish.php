@@ -26,6 +26,7 @@ class publish extends common{
 	function save(){
 		if(isset($_POST['id'])){
 			$_POST['creat_time'] = date('Y-m-d');
+			$_POST['tags'] = implode(',', $_POST['tags']);
 		}
 
 		$this->load(['admin/common/save'=>'save']);
@@ -40,13 +41,13 @@ class publish extends common{
 			$data = $this->db->query('SELECT * FROM blog WHERE id = ?',[$id]);
 			return $data[0];
 		}else{
-			return ['id'=>null,'user_id'=>$this->user_id,'title'=>null,'title'=>null,'content'=>null,'description'=>null];
+			return ['id'=>null,'user_id'=>$this->user_id,'title'=>null,'title'=>null,'content'=>null,'description'=>null,'type'=>null];
 		}
 	}
 
 	function getBaseData(){
-		$tags = include_once('data/blogTags.php');
-		$type = include_once('data/blogType.php');
+		$tags = include('data/blogTags.php');
+		$type = include('data/blogType.php');
 		return ['tags'=>$tags,'type'=>$type];
 	}
 }

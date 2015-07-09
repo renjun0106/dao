@@ -7,6 +7,12 @@ class index extends core{
 	}
 
 	function show(){
-		$this->tpl->show('index',['test'=>1],'blog');
+		$this->tpl->show('index',[
+			'title'=>$this->getTitle()
+			],'blog');
+	}
+
+	function getTitle(){
+		return 'Title';
 	}
 }

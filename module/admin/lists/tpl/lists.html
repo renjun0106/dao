@@ -25,6 +25,8 @@
 						<th>Title</th>
 						<th>Autor</th>
 						<th>Description</th>
+						<th>Type</th>
+						<th>Tags</th>
 						<th>Creat Time&nbsp;|&nbsp;Modify Time</th>
 						<th>Actions</th>
 					</tr>
@@ -39,6 +41,8 @@
 							<td><?=$d['title']?></td>
 							<td><?=$d['user_id']?></td>
 							<td><?=$d['description']?></td>
+							<td><?=$d['type']?></td>
+							<td><?=$d['tags']?></td>
 							<td><?=$d['creat_time'].' | '.$d['modify_time']?></td>
 							<td>
 								<a href="/admin/detail?id=<?=$d['id']?>"><i class="fa-list-ul"></i></a>
