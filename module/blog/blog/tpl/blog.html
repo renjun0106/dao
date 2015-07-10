@@ -1,0 +1,14 @@
+<?php include(MODULE.'/blog/public/header.html');?>
+
+
+	<div class="container">
+	   	<div class="row">
+			<h3><?=$data['title']?></h3>
+			<?=$d['user_id']?><?=$d['creat_time']?>
+			<?=$lang['type']?>:<?=$d['type']?>&nbsp;&nbsp;<?=$lang['view']?>:<?=0?>&nbsp;&nbsp;<?=$lang['comment']?>:<?=0?>
+			<br>
+			<?=$lang['tags']?>:<?=$d['tags']?>
+			<?=$data['content']?>
+	   	</div>
+	</div>
+<?php include(MODULE.'/blog/public/footer.html');?>

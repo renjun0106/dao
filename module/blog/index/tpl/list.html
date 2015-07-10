@@ -1,0 +1,16 @@
+<?php foreach ($data as $d): ?>
+	<div class="row">
+		<div class="col-md-10">
+		<a href="/b?id=<?=$d['id']?>"><h4><?=$d['title']?></h4></a>
+		<?=$lang['type']?>:<?=$d['type']?>&nbsp;&nbsp;<?=$lang['view']?>:<?=0?>&nbsp;&nbsp;<?=$lang['comment']?>:<?=0?>
+		<br>
+		<?=$lang['tags']?>:<?=$d['tags']?>
+		</div>
+		<div class="col-md-2">
+			<?=$d['user_id']?><br><?=$d['creat_time']?>
+		</div>
+	</div>
+		<?=$d['description']?>
+		<hr>
+<?php endforeach;?>
+<?=$page?>

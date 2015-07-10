@@ -1,0 +1,71 @@
+a{color: #6ba442;}a:hover {color: #6ba442}
+.btn {
+  font-weight: 700;
+  border-radius: 0;
+  text-transform: uppercase;
+  padding: 12px 20px 11px;
+  -webkit-transition: all 120ms ease;
+  -moz-transition: all 120ms ease;
+  transition: all 120ms ease;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}.btn-primary {
+    color: #fff;
+    background-color: #6ba442;
+    border-color: #5f923b
+}
+
+.btn-primary:focus,.btn-primary:hover {
+    color: #fff;
+    background-color: #5f923b;
+    border-color: #538033
+}
+
+.btn-xs {
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+}.form-control {
+    border-radius: 0;
+    box-shadow: none
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #6ba442
+}
+.jsckick:hover,.jsckick:focus{
+	text-decoration: none;
+}
+#menu{
+	background: #3b291f;color: #fff;
+	top: -364px;
+	display: none;
+	-moz-box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px #888;box-shadow: 0 0 5px #888;
+}
+#menulist{
+	overflow:auto;
+	height: 300px;
+}
+.menubutton{   
+	position: fixed;
+	z-index: 1030;
+	height: 50px;
+}
+#top{
+	border-bottom: 1px solid #d7d7d7;
+}
+#searchform{
+	padding-top:15px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px){
+	.menubutton{
+		right: 0;
+	}
+}
+@media only screen and (min-width: 1024px){
+	.menubutton{
+		left: 60%;
+	}
+}

@@ -30,12 +30,12 @@ class field extends core{
 		switch ($field) {
 			case 'user_id':
 				$name = $this->db->query('SELECT username FROM user WHERE id = ?',[$value]);
-				return '<a target="_blank" href="/?user='.$value.'">'.$name[0]['username'].'</a>';
+				return '<a href="/?user='.$value.'">'.$name[0]['username'].'</a>';
 			case 'type':
 				foreach ($this->types as $type) {
 					foreach ($type as $k => $v) {
 						if($k == $value){
-							return '<a target="_blank" href="/?type='.$value.'">'.$v.'</a>';
+							return '<a href="/?type='.$value.'">'.$v.'</a>';
 						}
 					}
 				}
@@ -44,7 +44,7 @@ class field extends core{
 				foreach ($this->tags as $type) {
 					foreach ($type as $k => $v) {
 						if(in_array($k,$tagsarr)){
-							$tagsstr[] = '<a target="_blank" href="/?tags='.$k.'">'.$v.'</a>';
+							$tagsstr[] = '<a href="/?tags='.$k.'">'.$v.'</a>';
 						}
 					}
 				}

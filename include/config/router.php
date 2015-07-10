@@ -2,6 +2,7 @@
 return [
 	'default_url' => '/blog/index',
 	'url_rules' => [
-		'/a' => '/admin/index'
+		'/a' => '/admin/index',
+		'/b' => '/blog/blog'
 	]
 ];
