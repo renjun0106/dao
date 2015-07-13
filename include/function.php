@@ -14,7 +14,7 @@ function l($data,$add=1){
     $contents = ob_get_contents();
     ob_end_clean();
 
-	$file = fopen('log.txt',$add?'a':'w');
+	$file = fopen('log/l.log',$add?'a':'w');
 	fwrite($file,$contents);
 	fclose($file);
 }

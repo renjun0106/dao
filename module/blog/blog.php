@@ -4,7 +4,7 @@ class blog extends core{
 
 	function __construct(){
 		$this->lib(['tpl','db']);
-		$this->load(['admin/common/page'=>'page','common/field']);
+		$this->load(['common/field']);
 	}
 
 	function show(){
@@ -20,7 +20,8 @@ class blog extends core{
 
 	function getBlog(){
 		$data = $this->db->query('SELECT * FROM blog WHERE id = ?',[$_GET['id']]);
-		return $data[0];
+
+		return $this->field->changeField($data[0]);
 	}
 
 	

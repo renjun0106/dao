@@ -14,9 +14,10 @@
 		<div class="container">
 		   	<div class="row">
 				<div class="col-md-3">
-					<form id="searchform">
+					<form id="searchform" action="/">
 					   	<div class="form-group">
-					   		<input type="text" class="form-control" placeholder="搜索...">
+					   		<input type="hidden" name="action" value="search">
+					   		<input type="text" name="word" class="form-control" placeholder="搜索...">
 					   	</div>
 					</form>
 			   	</div>

@@ -16,7 +16,7 @@ class db{
 		}
 		$stmt = $this->mysqli->prepare($sql);
 
-		$stmt or $this->_sqlError($this->mysqli->error);
+		$stmt or $this->_sqlError($this->mysqli->error,$sql);
 
 		$ref = new ReflectionClass('mysqli_stmt'); 
 		$method = $ref->getMethod('bind_param');
@@ -42,7 +42,7 @@ class db{
     function pquery($sql){
 		$rs = $this->mysqli->query($sql);
 
-		$rs or $this->_sqlError($this->mysqli->error);
+		$rs or $this->_sqlError($this->mysqli->error,$sql);
 
 		while($row  = $rs->fetch_assoc()){
 			$data[] = $row ;
@@ -66,7 +66,7 @@ class db{
 	    return $refs;
 	}
 
-	private function _sqlError($error){
-		die($error);
+	private function _sqlError($error,$sql){
+		die($sql.'<br>'.$error);
 	}
 }
