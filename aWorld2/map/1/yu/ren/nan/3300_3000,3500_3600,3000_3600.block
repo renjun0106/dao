@@ -1,0 +1,44 @@
+{
+	"background":{
+        "color": "#000",
+        "image": {
+			"sx": 16,
+			"sy": 96,
+			"swidth": 16,
+			"sheight": 16,
+			"globalCompositeOperation":"source-over",
+			"globalAlpha":0.5,
+			"type":"repeat"
+        },
+        "shadow":{
+			"Color" : "black",
+			"Blur" : 20,
+			"OffsetX" : 10,
+			"OffsetY" : 10
+        }
+	},
+	"lines":[
+		{"sx":3300,"sy":3000,"ex":3500,"ey":3600},
+		{"sx":3500,"sy":3600,"ex":3000,"ey":3600}
+	],
+	"objects":[
+		{
+			"point":{"x":3400,"y":3500},
+	        "color": "#fff",
+	        "image": {
+	        	"size":3,
+				"sx": 16,
+				"sy": 96,
+				"swidth": 16,
+				"sheight": 16
+	        },
+	        "shadow":{
+				"Color" : "black",
+				"Blur" : 10,
+				"OffsetX" : 5,
+				"OffsetY" : 5
+	        }
+        }
+	]
+}
+

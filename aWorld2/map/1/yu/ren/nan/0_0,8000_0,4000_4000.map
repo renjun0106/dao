@@ -1,0 +1,17 @@
+{
+
+	"background":{
+        "color": "#caff67",
+        "image": {
+			"sx": 32,
+			"sy": 96,
+			"swidth": 16,
+			"sheight": 16,
+			"globalCompositeOperation":"source-over",
+			"globalAlpha":0.5,
+			"type":"repeat"
+        }
+	}
+
+}
+
