@@ -1,1 +1,1 @@
-# 简单blog
+# php开发的简单blog。
