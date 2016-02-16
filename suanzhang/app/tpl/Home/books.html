@@ -1,0 +1,14 @@
+<?php foreach ($data as $key => $value): ?>
+	<div class="active-users">
+		<div class="user clearfix rotateInDownLeft animated">
+			<div class="photo pull-left">
+				<img src="<?=$this->resources?>/img/<?=$value['head']?>">
+			</div>
+			<div class="desc pull-left">
+				<p class="name"><?=$value['name']?>&nbsp;|￥<?=$value['money']?>&nbsp;|&nbsp;<?=$value['date']?></p>
+				<p class="position pull-left"><?=substr_cut($value['description'],15)?></p>
+			</div>
+			<div class="idle pull-right"><span class="<?php if ($value['isdone']==1): ?>offline<?php else: ?>online<?php endif ?>"></span></div>
+		</div>
+	</div>
+<?php endforeach ?>

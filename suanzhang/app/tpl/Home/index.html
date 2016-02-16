@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">  
+	<title>算账的</title>
+	<link rel="stylesheet" type="text/css" href="<?=$this->resources?>/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="<?=$this->resources?>/css/default.css">
+	<link rel='stylesheet prefetch' href='http://fonts.useso.com/css?family=Open+Sans'>
+	<link rel="stylesheet" type="text/css" href="<?=$this->resources?>/css/login.css">
+
+	<link rel='stylesheet prefetch' href='http://fonts.useso.com/css?family=Roboto:400,300,700'>
+	<link rel='stylesheet prefetch' href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+	<link rel='stylesheet prefetch' href='<?=$this->resources?>/css/animate.min.css'>
+	<link rel='stylesheet prefetch' href='<?=$this->resources?>/css/home.css'>
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="cont">
+	  <div class="demo">
+	    <div class="login">
+	      <div class="login__check"></div>
+	      <div class="login__wrong"></div>
+	      <div class="login__form">
+	        <div class="login__row">
+	          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+	            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+	          </svg>
+	          <input type="text" class="login__input name" name="username" placeholder="Username"/>
+	        </div>
+	        <div class="login__row">
+	          <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+	            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+	          </svg>
+	          <input type="password" class="login__input pass" name="password" placeholder="Password"/>
+	        </div>
+	        <button type="button" class="login__submit">登 录</button>
+	      </div>
+	    </div>
+	    <div class="app">
+	    </div>
+	  </div>
+	</div>
+	
+	<script src='<?=$this->resources?>/js/stopExecutionOnTimeout.js?t=1'></script>
+	<script src='http://libs.useso.com/js/jquery/1.11.0/jquery.min.js'></script>
+	<script src="<?=$this->resources?>/js/autoBackgroundScroll.js"></script>
+	<script src='<?=$this->resources?>/js/app.js'></script>
+</body>
+</html>

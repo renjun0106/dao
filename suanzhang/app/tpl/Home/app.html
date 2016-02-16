@@ -1,0 +1,132 @@
+
+
+<div class="mobile-wrap">
+	<div class="mobile clearfix">
+		<div class="header">
+			<span class="ion-ios-navicon pull-left"><i></i></span>
+			<span class="title"><?=$lang['head_name']?></span>
+			<a href="javascript:;" class="pull-right" id="refresh"><span class="ion-ios-refresh"></span></a>
+		</div>
+		<div class="sidebar">
+			<div class="sidebar-overlay"></div>
+			<div class="sidebar-content">
+				<div class="top-head">
+					<div class="name"><?=$lang['head_name']?></div>
+					<div class="email"><?=$lang['head_email']?></div>
+				</div>
+				<div class="nav-left">
+					<a href="#home"><span class="ion-ios-home-outline"></span><?=$lang['home']?></a>
+					<a href="#compose"><span class="ion-ios-compose-outline"></span><?=$lang['compose']?></a>
+					<a href="#chats"><span class="ion-ios-calendar-outline"></span><?=$lang['books']?></a>
+					<a href="#profile"><span class="ion-ios-person-outline"></span><?=$lang['profile']?></a>
+					<a href="#settings"><span class="ion-ios-gear-outline"></span><?=$lang['settings']?></a>
+					<a href="#credits"><span class="ion-ios-information-outline"></span><?=$lang['credits']?></a>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="html welcome visible">
+				<div class="datetime">
+					<div class="day lightSpeedIn animated"></div>
+					<div class="date lightSpeedIn animated"></div>
+					<div class="time lightSpeedIn animated"></div>
+					<br>
+					<hr>
+				</div>
+				<div>
+					<table class="lightSpeedIn animated">
+						<tr>
+							<td>所有花滴</td><td>：￥<?=$data['allBook1']?></td>
+						</tr>
+						<tr>
+							<td>所有已结算</td><td>：￥<?=$data['allBook2']?></td>
+						</tr>
+						<tr>
+							<td>所有未结算</td><td>：￥<?=$data['allBook3']?></td>
+						</tr>
+						<tr>
+							<td>我花滴</td><td>：￥<?=$data['userBook1']?></td>
+						</tr>
+						<tr>
+							<td>我已结算</td><td>：￥<?=$data['userBook2']?></td>
+						</tr>
+						<tr>
+							<td>我未结算</td><td>：￥<?=$data['userBook3']?></td>
+						</tr>
+						<tr>
+					</table>
+				</div>
+			</div>
+			<div class="html compose">
+				<div class="forms">
+					<div class="group clearfix slideInLeft animated">
+						<label class="pull-left" for="compose-date"><span class="ion-ios-time-outline"></span> <?=$lang['date']?></label>
+						<input class="pull-right" id="compose-date" type="date" value="<?=date('Y-m-d')?>">
+					</div>
+					<div class="group clearfix slideInRight animated">
+						<label class="pull-left" for="compose-title"><span class="ion-ios-paper-outline"></span> <?=$lang['money']?></label>
+						<input class="pull-right" id="compose-title" type="number">
+					</div>
+					<div class="group clearfix slideInLeft animated">
+						<label class="pull-left" for="compose-detail"><span class="ion-ios-list-outline"></span> <?=$lang['description']?></label>
+						<textarea class="visible" id="compose-detail" rows="3"></textarea>
+					</div>
+					<div class="action flipInY animated">
+						<button class="btn" id="compose_submit"><span><?=$lang['Compose']?></span></button>
+					</div>
+				</div>
+			</div>
+			<div class="html chats">
+				<div class="tabs-list clearfix">
+					<a href="javascript:;" class="tab active" id="book_all"><?=$lang['All']?></a>
+					<a href="javascript:;" class="tab"  id="book_me"><?=$lang['Me']?></a>
+				</div>
+				<div id="books">
+				</div>
+				<br>
+				<div class="tabs-list clearfix">
+					<a href="javascript:;" class="tab"  id="book_prev"><?=$lang['PrevPage']?></a>
+					<a href="javascript:;" class="tab" id="book_next"><?=$lang['NextPage']?></a>
+					<a href="javascript:;" class="tab">第<span id="book_page">1</span>页</a>
+					<a href="javascript:;" class="tab">共<span id="book_total"></span>页</a>
+				</div>
+			</div>
+			<div class="html settings">
+				<div class="action flipInY animated">
+					<button class="btn" id="kaisuan"><span>开算</span></button>
+					<div id="kaisuan_content"></div>
+				</div>
+			</div>
+			<div class="html profile">
+				<div class="photo flipInX animated">
+					<img src="<?=$this->resources?>/img/<?=$data['userInfo']['head']?>">
+				</div>
+				<div class="details">
+					<p class="heading flipInY animated">
+						<span class="name"><?=$data['userInfo']['name']?></span>
+					</p>
+					<p class="text fadeInUp animated"><?=$data['userInfo']['introduce']?></p>
+				</div>
+			</div>
+			<div class="html credits">
+				<div class="title flipInY animated">算账咯</div>
+				<div class="credit-ol">
+					<div class="credit-li lightSpeedIn animated">算账咯</div>
+					<div class="credit-li lightSpeedIn animated">算账咯</div>
+					<div class="credit-li lightSpeedIn animated">算账咯</div>
+					<div class="credit-li lightSpeedIn animated">算账咯</div>
+					<div class="credit-li lightSpeedIn animated">算账咯</div>
+				</div>
+			</div>
+			<div class="html logout"></div>
+		</div>
+		<div class="nav">
+			<a href="#profile" class="nav-item nav-count-1"><i class="ion-ios-person-outline"></i><span class="invisible">个人</span></a>
+			<a href="#compose" class="nav-item nav-count-2"><i class="ion-ios-compose-outline"></i><span class="invisible">记账</span></a>
+			<a href="#chats" class="nav-item nav-count-3"><i class="ion-ios-calendar-outline"></i><span class="invisible">账本</span></a>
+			<a href="#logout" class="nav-item nav-count-4 app__logout"><i class="ion-power"></i><span class="invisible">账本</span></a>
+			<a href="#toggle" class="mask"><i class="ion-ios-plus-empty"></i></a>
+		</div>
+	</div>
+</div>
+

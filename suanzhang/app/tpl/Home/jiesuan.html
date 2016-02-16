@@ -1,0 +1,33 @@
+
+<div class="chats">
+<?php foreach ($data as $key => $value): ?>
+	<div class="active-users">
+		<div class="user clearfix rotateInDownLeft animated">
+			<div class="photo pull-left">
+				<img src="<?=$this->resources?>/img/<?=$value['head']?>">
+			</div>
+			<div class="desc pull-left">
+				<p class="name"><?=$value['name']?>&nbsp;转￥<?=$value['gei_money']?>给&nbsp;</p>
+			</div>
+			<div class="desc pull-right">
+				<p class="name"><?=$value['gei_name']?></p>
+			</div>
+			<div class="photo pull-right">
+				<img src="<?=$this->resources?>/img/<?=$value['gei_head']?>">
+			</div>
+		</div>
+	</div>
+<?php endforeach ?>
+<?php if (!$data): ?>
+	<div class="active-users">
+		<div class="user clearfix rotateInDownLeft animated">
+			<div class="desc pull-left">
+				<p class="name">没有需要结算的</p>
+			</div>
+		</div>
+	</div>
+<?php endif ?>
+</div>
+	<div class="action flipInY animated">
+		<button class="btn" id="jiesuan_submit"><span>结算确定</span></button>
+	</div>

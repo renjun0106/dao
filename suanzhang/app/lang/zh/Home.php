@@ -1,0 +1,19 @@
+<?php
+return [
+	'home'=>'首页',
+	'head_name'=>'算账的',
+	'head_email'=>'',
+	'compose'=>'记账',
+	'books'=>'账本',
+	'profile'=>'个人',
+	'settings'=>'算账',
+	'credits'=>'申明',
+	'date'=>'在',
+	'money'=>'钱',
+	'description'=>'是咋用滴',
+	'Compose'=>'提交',
+	'All'=>'所有',
+	'Me'=>'我的',
+	'PrevPage'=>'上一页',
+	'NextPage'=>'下一页'
+];

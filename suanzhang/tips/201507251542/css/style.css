@@ -1,0 +1,31 @@
+/*==============================
+
+Element
+
+==============================*/
+/*h1 {
+  font-size: 46px;
+  width: 300px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}*/
+
+body {
+  background-image: url(../img/background.jpg);
+  background-position: 0px 0px;
+}
+
+/*==============================
+
+Class
+
+==============================*/
+
+/*# sourceMappingURL=style.css.map */
